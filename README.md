@@ -1,5 +1,4 @@
 # API_Money_Transfer (자금이체 API서비스)
-# API_Loan_Credit (신용대출 API서비스)
 
 
 _2021년 4월 21일 (Ver 0.3) update for Wooribank API_Hackathon
