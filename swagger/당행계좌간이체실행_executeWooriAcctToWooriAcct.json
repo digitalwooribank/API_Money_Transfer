@@ -1,0 +1,207 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description" : "Wooribank API, Wooribank Swagger Spec. JSON",
+		"version": "1.0.0",
+		"title" : "Wooribank API"
+	},
+	"host": "localhost:8080",
+	"basePath": "/",
+	"tags": [{
+		"name": "List of APIs",
+		"description": ""
+	}],
+	"paths": {
+		"/oai/wb/v1/trans/executeWooriAcctToWooriAcct" : {
+		  "post" : {
+			"tags" : [ "List of APIs" ],
+			"summary" : "당행 계좌 간 이체 실행",
+			"operationId" : "_oai_wb_v1_trans_executeWooriAcctToWooriAcct",
+			"consumes" : [ "application/json" ],
+			"produces" : [ "application/json" ],
+			"parameters" : [ {
+			  "name" : "appkey",
+			  "in" : "header",
+			  "description" : "제휴사키",
+			  "type" : "string",
+			  "required" : false
+			}, {
+			  "name" : "token",
+			  "in" : "header",
+			  "description" : "인증토큰",
+			  "type" : "string",
+			  "required" : false
+			}, {
+			  "in" : "body",
+			  "name" : "REQUEST",
+			  "description" : "request body",
+			  "required" : true,
+			  "schema" : {
+				"$ref" : "#/definitions/_oai_wb_v1_trans_executeWooriAcctToWooriAcct_REQUEST_1iv4ass726mut"
+			  }
+			} ],
+			"responses" : {
+			  "400" : {
+				"description" : "BAD_REQUEST"
+			  },
+			  "404" : {
+				"description" : "NOT_FOUND"
+			  },
+			  "405" : {
+				"description" : "METHOD_NOT_ALLOWED"
+			  },
+			  "500" : {
+				"description" : "INTERNAL_SERVER_ERROR"
+			  },
+			  "503" : {
+				"description" : "SERVICE_UNAVAILABLE"
+			  },
+			  "200" : {
+				"description" : "OK",
+				"schema" : {
+				  "$ref" : "#/definitions/_oai_wb_v1_trans_executeWooriAcctToWooriAcct_RESPONSE_1h84txwpavtya"
+				}
+			  }
+			}		
+		  }
+		}
+	},
+	"definitions": {
+		"_oai_wb_v1_trans_executeWooriAcctToWooriAcct_REQUEST_1iv4ass726mut" : {
+		  "type" : "object",
+		  "required" : [ "dataBody", "dataHeader" ],
+		  "properties" : {
+			"dataHeader" : {
+			  "description" : "response data header",
+			  "$ref" : "#/definitions/_oai_wb_v1_trans_executeWooriAcctToWooriAcct_dataHeader_1iv6lf6whrx43"
+			},
+			"dataBody" : {
+			  "description" : "response data header",
+			  "$ref" : "#/definitions/_oai_wb_v1_trans_executeWooriAcctToWooriAcct_dataBody_s1dw40ry6cte"
+			}
+		  }
+		},
+		"_oai_wb_v1_trans_executeWooriAcctToWooriAcct_dataHeader_1iv6lf6whrx43" : {
+		  "type" : "object",
+		  "properties" : {
+			"UTZPE_CNCT_IPAD" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "이용자접속IP주소"
+			},
+			"UTZPE_CNCT_MCHR_UNQ_ID" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "이용자접속기기고유ID"
+			},
+			"UTZPE_CNCT_TEL_NO_TXT" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "이용자접속전화번호"
+			},
+			"UTZPE_CNCT_MCHR_IDF_SRNO" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "이용자접속기기식별일련번호"
+			},
+			"UTZ_MCHR_OS_DSCD" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "이용기기운영체계구분코드"
+			},
+			"UTZ_MCHR_OS_VER_NM" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "이용기기운영체계버전명"
+			},
+			"UTZ_MCHR_MDL_NM" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "이용기기모델명"
+			},
+			"UTZ_MCHR_APP_VER_NM" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "앱 버전"
+			}
+		  },
+		  "description" : "response data header"
+		},
+		"_oai_wb_v1_trans_executeWooriAcctToWooriAcct_dataBody_s1dw40ry6cte" : {
+		  "type" : "object",
+		  "required" : [ "INQ_ACNO", "INQ_END_DT", "INQ_STA_DT" ],
+		  "properties" : {
+			"WDR_ACNO": {
+					"type": "string",
+					"example": "1002123456789",
+					"description": "출금계좌번호"
+				},
+				"TRN_AM": {
+					"type": "string",
+					"example": "500000",
+					"description": "거래금액"
+				},
+				"RCV_BKCD": {
+					"type": "string",
+					"example": "020",
+					"description": "입금은행코드"
+				},
+				"RCV_ACNO": {
+					"type": "string",
+					"example": "1002987654321",
+					"description": "입금계좌번호"
+				},
+				"PTN_PBOK_PRNG_TXT": {
+					"type": "string",
+					"example": "보너스",
+					"description": "상대통장인자내용"
+				}
+		  },
+		  "description" : "response data header"
+		},
+		"_oai_wb_v1_trans_executeWooriAcctToWooriAcct_RESPONSE_1h84txwpavtya" : {
+		  "type" : "object",
+		  "required" : [ "dataBody", "dataHeader" ],
+		  "properties" : {
+			"dataHeader" : {
+			  "description" : "response data header",
+			  "$ref" : "#/definitions/_oai_wb_v1_trans_executeWooriAcctToWooriAcct_dataHeader_1h84tjvka3eck"
+			},
+			"dataBody" : {
+			  "description" : "response data header",
+			  "$ref" : "#/definitions/_oai_wb_v1_trans_executeWooriAcctToWooriAcct_dataBody_rh7qgqrdy44l"
+			}
+		  }
+		},
+		"_oai_wb_v1_trans_executeWooriAcctToWooriAcct_dataHeader_1h84tjvka3eck" : {
+		  "type" : "object",
+		  "description" : "response data header"
+		},
+		"_oai_wb_v1_trans_executeWooriAcctToWooriAcct_dataBody_rh7qgqrdy44l" : {
+		  "type" : "object",
+		  "properties" : {
+			"OWAC_FNM": {
+					"type": "string",
+					"example": "홍길동",
+					"description": "예금주성명"
+				},
+				"BFTR_AF_BAL": {
+					"type": "string",
+					"example": "1532000",
+					"description": "거래전후잔액"
+				},
+				"RNPE_FNM": {
+					"type": "string",
+					"example": "김우리",
+					"description": "수취인성명"
+				},
+				"FEE_AM": {
+					"type": "string",
+					"example": "0",
+					"description": "수수료금액"
+				}
+			},
+		  "description" : "response data header"
+		}
+	}
+}
